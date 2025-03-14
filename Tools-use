@@ -1,0 +1,40 @@
+# ⚙ Herramientas Utilizadas en el Ataque
+
+Este documento describe las herramientas empleadas durante la simulación de ataque en el entorno de laboratorio con Kali Linux.
+
+---
+
+##  **Kali Linux**
+- **Descripción:** Sistema operativo basado en Debian, especializado en pruebas de penetración y seguridad informática.
+- **Uso en el Ejercicio:** Entorno principal de trabajo para ejecutar pruebas ofensivas de seguridad.
+
+---
+
+##  **`curl`**
+- **Descripción:** Herramienta de línea de comandos utilizada para transferir datos a través de múltiples protocolos como HTTP, HTTPS, FTP, entre otros.
+- **Uso en el Ejercicio:**
+    - Realizar peticiones HTTP POST para simular intentos de autenticación.
+    - Gestionar cookies mediante los parámetros `-c` (crear) y `-b` (leer).
+    - Seguir redirecciones con la opción `-L`.
+    - Personalizar cabeceras HTTP para simular tráfico legítimo.
+
+---
+
+##  **`cookies.txt`**
+- **Descripción:** Archivo de texto utilizado para almacenar cookies de sesión.
+- **Uso en el Ejercicio:**
+    - Guardar las cookies generadas tras las solicitudes HTTP.
+    - Reutilizar cookies en peticiones sucesivas para mantener sesiones válidas.
+
+---
+
+##  **Terminal Bash**
+- **Descripción:** Intérprete de comandos en sistemas Linux, utilizado para la ejecución de instrucciones en el entorno.
+- **Uso en el Ejercicio:**
+    - Ejecutar comandos personalizados para el ataque.
+    - Analizar la respuesta de las peticiones y depurar errores.
+
+---
+
+> **Nota:** Todas las herramientas utilizadas se aplicaron en un entorno controlado y con fines educativos.
+
