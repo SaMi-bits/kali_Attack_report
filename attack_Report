@@ -1,0 +1,79 @@
+# Offensive Security Report: Kali Linux Attack Simulation
+
+## 🛡Objetivo del Ejercicio
+
+El propósito de este ejercicio fue simular un ataque en un entorno de laboratorio controlado utilizando Kali Linux. La prueba consistió en automatizar peticiones de autenticación a una aplicación web para comprender la gestión de cookies, cabeceras HTTP, y la interacción con formularios de inicio de sesión.
+
+---
+
+## ⚙ Herramientas Utilizadas
+
+- **Kali Linux**: Sistema operativo especializado en pruebas de penetración.  
+- **`curl`**: Herramienta de línea de comandos para realizar peticiones HTTP.  
+- **`cookies.txt`**: Archivo utilizado para almacenar y gestionar cookies de sesión.  
+- **Terminal Bash**: Medio principal para la ejecución de comandos en el entorno Kali.  
+
+Más detalles en el archivo [`tools-used.md`](./tools-used.md).
+
+---
+
+## Metodología de Ataque
+
+1. **Configuración del Entorno:**
+    - Se preparó Kali Linux en un entorno virtualizado y seguro.
+    - Se definieron los parámetros necesarios para la prueba, como cookies y cabeceras HTTP.
+
+2. **Comando Principal Ejecutado:**
+```bash
+curl -c cookies.txt -b cookies.txt -L -d "username=admin&password=example123" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "Referer:https://192.168.X.X/login.html" \
+-H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)" \
+http://192.168.X.X/goform/WebLogin
+```
+
+3. **Parámetros Explicados:**
+   - `-c cookies.txt`: Guarda cookies en el archivo especificado.
+   - `-b cookies.txt`: Utiliza las cookies almacenadas previamente.
+   - `-L`: Sigue redirecciones en las peticiones HTTP.
+   - `-d`: Define los datos enviados en la petición POST.
+   - `-H`: Añade cabeceras HTTP personalizadas para simular una interacción real.
+
+---
+
+## Dificultades y Soluciones
+
+- **Problema:** Error en la estructura de los paréntesis en el comando.  
+  **Solución:** Se eliminaron los paréntesis innecesarios, y se ajustaron las comillas.
+
+- **Problema:** Error en la gestión de cookies durante las peticiones.  
+  **Solución:** Se verificó la correcta generación y lectura del archivo `cookies.txt`.
+
+- **Problema:** Comando `curl` no seguía redirecciones correctamente.  
+  **Solución:** Se añadió el parámetro `-L` para asegurar el seguimiento de redirecciones.
+
+---
+
+##  Lecciones Aprendidas
+
+1. La correcta gestión de cookies es esencial para la automatización de peticiones autenticadas.  
+2. La estructura de las cabeceras HTTP influye en el éxito de las interacciones con aplicaciones web.  
+3. La importancia de probar comandos en un entorno controlado antes de su aplicación práctica.
+
+---
+
+##  Conclusión
+
+Este ejercicio permitió fortalecer habilidades en el uso de `curl` para automatizar peticiones web y entender mejor la gestión de sesiones mediante cookies. Además, destacó la importancia de la sintaxis correcta en los comandos de terminal.
+
+---
+
+##  Capturas de Pantalla
+
+Las imágenes relacionadas con el proceso están almacenadas en la carpeta [`assets/`](./assets).
+
+---
+
+> **Nota:** Toda la información presentada ha sido anonimizada para evitar la exposición de datos sensibles o privados.
+
+
